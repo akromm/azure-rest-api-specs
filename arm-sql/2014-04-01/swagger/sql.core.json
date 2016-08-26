@@ -398,9 +398,1053 @@
                     "nextLinkName": null
                 }
             }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}": {
+            "put": {
+                "tags": [
+                    "Servers"
+                ],
+                "operationId": "Servers_CreateOrUpdate",
+                "description": "Creates a new Azure SQL Server.",
+                "parameters": [
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Server"
+                        },
+                        "description": "The required parameters for createing or updating a server."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Server"
+                        }
+                    },
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Server"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Servers"
+                ],
+                "operationId": "Servers_Delete",
+                "description": "Returns information about an Azure SQL Server.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "204": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Servers"
+                ],
+                "operationId": "Servers_Get",
+                "description": "Returns information about an Azure SQL Server.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Server"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers": {
+            "get": {
+                "tags": [
+                    "Servers"
+                ],
+                "operationId": "Servers_List",
+                "description": "Returns information about an Azure SQL Server.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServerListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/operationResults/versionUpgrade": {
+            "delete": {
+                "tags": [
+                    "ServerUpgrades"
+                ],
+                "operationId": "Servers_CancelUpgrade",
+                "description": "Cancel a pending upgrade for the Azure SQL Server.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "ServerUpgrades"
+                ],
+                "operationId": "Servers_GetUpgradeResult",
+                "description": "Returns information about Upgrade status of an Azure SQL Server.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServerUpgradeGetResult"
+                        }
+                    },
+                    "202": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/upgrade": {
+            "post": {
+                "tags": [
+                    "ServerUpgrades"
+                ],
+                "operationId": "Servers_StartUpgrade",
+                "description": "Start an Azure SQL Server Upgrade.",
+                "parameters": [
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServerUpgradeStartParameters"
+                        },
+                        "description": "The required parameters for the Azure SQL Server Upgrade."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}": {
+            "put": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_CreateOrUpdate",
+                "description": "Creates a new Azure SQL elastic pool or updates an existing Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be operated on (Updated or created)."
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPoolCreateOrUpdateParameters"
+                        },
+                        "description": "The required parameters for createing or updating an Elastic Pool."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": ""
+                    },
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPool"
+                        }
+                    },
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPool"
+                        }
+                    }
+                },
+                "x-ms-long-running-operation": true
+            },
+            "delete": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_Delete",
+                "description": "Deletes the Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be deleted."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "204": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_Get",
+                "description": "Returns information about an Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPool"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools": {
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_List",
+                "description": "Returns information about Azure SQL elastic pools.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPoolListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/elasticPoolActivity": {
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_ListActivity",
+                "description": "Returns information about Azure SQL elastic pool activities.",
+                "parameters": [
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool for which to get the current activity."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPoolActivityListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/elasticPoolDatabaseActivity": {
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_ListDatabaseActivity",
+                "description": "Returns information about activity on Azure SQL databases inside of an Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool."
+                    },
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ElasticPoolDatabaseActivityListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
         }
     },
     "definitions": {
+        "ElasticPoolCreateOrUpdateProperties": {
+            "properties": {
+                "edition": {
+                    "type": "string",
+                    "description": "Gets or sets the edition for the Azure SQL Elastic Pool being updated or created."
+                },
+                "dtu": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the total shared DTU for the Sql Azure Database Elastic Pool.This must agree with the StorageMB if both are specified."
+                },
+                "storageMB": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets storage limit for the Sql Azure Database Elastic Pool in MB.This must agree with the Dtu if both are specified."
+                },
+                "databaseDtuMin": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the minimum DTU all Sql Azure Databases are guaranteed."
+                },
+                "databaseDtuMax": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the maximum DTU any one Sql Azure Database can consume."
+                }
+            },
+            "description": "Create or update Azure SQL Elastic Pool parameters properties."
+        },
+        "ElasticPoolCreateOrUpdateParameters": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ElasticPoolCreateOrUpdateProperties",
+                    "description": "Gets or sets the properties of the request.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Create or update Sql Azure Database Elastic Pool parameters."
+        },
+        "ElasticPoolProperties": {
+            "properties": {
+                "creationDate": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the creation date of the Azure SQL Elastic Pool."
+                },
+                "state": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the state of the Azure SQL Elastic Pool."
+                },
+                "edition": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the edition of the Azure SQL Elastic Pool.",
+                    "enum": [
+                        "Basic",
+                        "Standard",
+                        "Premium"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ElasticPoolEditions",
+                        "modelAsString": true
+                    }
+                },
+                "dtu": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the total shared DTU for the Sql Azure Database Elastic Pool."
+                },
+                "databaseDtuMax": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the maximum DTU any one Sql Azure Database can consume."
+                },
+                "databaseDtuMin": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the minimum DTU all Sql Azure Databases are guaranteed."
+                },
+                "storageMB": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets storage limit for the Sql Azure Database Elastic Pool in MB."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Elastic Pool."
+        },
+        "ElasticPool": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ElasticPoolProperties",
+                    "description": "Gets or sets the properties representing the resource.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Represents an Azure SQL Elastic Pool (Elastic Pool)."
+        },
+        "ElasticPoolListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ElasticPool"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Elastic Pools hosted in the server."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Elastic Pool request."
+        },
+        "ElasticPoolActivityProperties": {
+            "properties": {
+                "endTime": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the time the operation finished."
+                },
+                "errorCode": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the error code if available."
+                },
+                "errorMessage": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the error message if available."
+                },
+                "errorSeverity": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the error severity if available."
+                },
+                "operation": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the operation name."
+                },
+                "operationId": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the unique operation ID."
+                },
+                "percentComplete": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the percentage complete if available."
+                },
+                "requestedDatabaseDtuMax": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the requested max DTU per database if available."
+                },
+                "requestedDatabaseDtuMin": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the requested min DTU per database if available."
+                },
+                "requestedDtu": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the requested DTU for the pool if available."
+                },
+                "requestedElasticPoolName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the requested name for the Elastic Pool if available."
+                },
+                "requestedStorageLimitInGB": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "Gets the requested storage limit for the pool in GB if available."
+                },
+                "elasticPoolName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the Elastic Pool."
+                },
+                "serverName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the Azure SQL Server the Elastic Pool is in."
+                },
+                "startTime": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the time the operation started."
+                },
+                "state": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the current state of the operation."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Elastic Pool."
+        },
+        "ElasticPoolActivity": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ElasticPoolActivityProperties",
+                    "description": "Gets or sets the properties representing the resource.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Represents the activity on an Azure SQL Elastic Pool."
+        },
+        "ElasticPoolActivityListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ElasticPoolActivity"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Elastic Pool Activities."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Elastic Pool Activity request."
+        },
+        "ElasticPoolDatabaseActivityProperties": {
+            "properties": {
+                "databaseName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the database name."
+                },
+                "endTime": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the time the operation finished."
+                },
+                "errorCode": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the error code if available."
+                },
+                "errorMessage": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the error message if available."
+                },
+                "errorSeverity": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the error severity if available."
+                },
+                "operation": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the operation name."
+                },
+                "operationId": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the unique operation ID."
+                },
+                "percentComplete": {
+                    "readOnly": true,
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets the percentage complete if available."
+                },
+                "requestedElasticPoolName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name for the Elastic Pool the database is moving into if available."
+                },
+                "currentElasticPoolName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the current Elastic Pool the database is in if available."
+                },
+                "currentServiceObjective": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the current service objective if available."
+                },
+                "requestedServiceObjective": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the requested service objective if available."
+                },
+                "serverName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name of the Azure SQL Server the Elastic Pool is in."
+                },
+                "startTime": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the time the operation started."
+                },
+                "state": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the current state of the operation."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Elastic Pool Database Activity."
+        },
+        "ElasticPoolDatabaseActivity": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ElasticPoolDatabaseActivityProperties",
+                    "description": "Gets or sets the properties representing the resource.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Represents the activity on an Azure SQL Elastic Pool."
+        },
+        "ElasticPoolDatabaseActivityListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ElasticPoolDatabaseActivity"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Elastic Pool Database Activities."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Elastic Pool Database Activity request."
+        },
+        "ServerProperties": {
+            "properties": {
+                "fullyQualifiedDomainName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "The fully qualified domain name of the server."
+                },
+                "version": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "The version of the server."
+                },
+                "administratorLogin": {
+                    "type": "string",
+                    "description": "Administrator username for the server. Can only be specified when the server is being created."
+                },
+                "administratorLoginPassword": {
+                    "type": "string",
+                    "description": "The administrator login password."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Server."
+        },
+        "Server": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ServerProperties",
+                    "description": "Represents the properties of the resource.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Represents an Azure SQL Server."
+        },
+        "RecommendedDatabaseProperties": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Gets or sets the name of the Azure SQL Database being upgraded."
+                },
+                "TargetEdition": {
+                    "type": "string",
+                    "description": "Gets or sets the target edition for the Azure SQL Database being upgraded."
+                },
+                "TargetServiceLevelObjective": {
+                    "type": "string",
+                    "description": "Gets or sets the target Service Level Objective for the Azure SQL Database being upgraded."
+                }
+            },
+            "description": "Represents the properties of a recommended Azure SQL Database being upgraded."
+        },
+        "ServerListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Server"
+                    },
+                    "description": "Gets or sets the list of Azure SQL Servers."
+                }
+            },
+            "description": "Represents the response to a Get Azure SQL Server request."
+        },
+        "ServerUpgradeGetResult": {
+            "properties": {
+                "status": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the status of the Azure SQL Server Upgrade."
+                },
+                "scheduleUpgradeAfterTime": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the schedule time of the Azure SQL Server Upgrade."
+                }
+            },
+            "description": "Represents the response to a Get request for Upgrade status of an Azure SQL Server."
+        },
+        "ServerUpgradeProperties": {
+            "properties": {
+                "Version": {
+                    "type": "string",
+                    "description": "Gets or sets the version for the Azure SQL Server being upgraded."
+                },
+                "ScheduleUpgradeAfterUtcDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets or sets the earliest time to upgrade the Azure SQL Server."
+                },
+                "DatabaseCollection": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecommendedDatabaseProperties"
+                    },
+                    "description": "Gets or sets the collection of recommended database properties to upgrade the Azure SQL Server."
+                },
+                "ElasticPoolCollection": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/UpgradeRecommendedElasticPoolProperties"
+                    },
+                    "description": "Gets or sets the collection of recommended elastic pool properties to upgrade the Azure SQL Server."
+                }
+            },
+            "required": [
+                "Version"
+            ],
+            "description": "Start Azure SQL Server Upgrade properties."
+        },
+        "ServerUpgradeStartParameters": {
+            "properties": {
+                "serverUpgradeProperties": {
+                    "$ref": "#/definitions/ServerUpgradeProperties",
+                    "description": "Gets or sets the properties of the Azure SQL Server Upgrade."
+                }
+            },
+            "required": [
+                "serverUpgradeProperties"
+            ],
+            "description": "Start Azure SQL Server Upgrade parameters."
+        },
+        "UpgradeRecommendedElasticPoolProperties": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Gets or sets the name of the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "Edition": {
+                    "type": "string",
+                    "description": "Gets or sets the target edition for the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "Dtu": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the DTU guarantee for the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "StorageMb": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the storage limit in MB for the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "DatabaseDtuMin": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the DTU guarantee for database for the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "DatabaseDtuMax": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gets or sets the DTU cap for database for the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "DatabaseCollection": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets or sets the list of database names to be put in the Azure SQL Recommended Elastic Pool being upgraded."
+                },
+                "IncludeAllDatabases": {
+                    "type": "boolean",
+                    "description": "Gets or sets whether all databases to be put in the Azure SQL Recommended Elastic Pool being upgraded."
+                }
+            },
+            "description": "Represents the properties of a Azure SQL Recommended Elastic Pool being upgraded."
+        },
+        "ServerCreateOrUpdateProperties": {
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "description": "Gets or sets the version for the server being updated or created."
+                },
+                "administratorLogin": {
+                    "type": "string",
+                    "description": "Gets or sets the Administrator Login of the server being created."
+                },
+                "administratorLoginPassword": {
+                    "type": "string",
+                    "description": "Gets or sets the Administrator Login Password of the server being created or updated."
+                }
+            },
+            "description": "Create or update server parameters properties."
+        },
+        "ServerCreateOrUpdateParameters": {
+            "properties": {
+                "properties": {
+                    "$ref": "#/definitions/ServerCreateOrUpdateProperties",
+                    "description": "Gets or sets the properties of the request.",
+                    "x-ms-client-flatten": true
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Create or update server parameters."
+        },
         "DatabaseCreateOrUpdateProperties": {
             "properties": {
                 "edition": {
@@ -418,7 +1462,7 @@
                 },
                 "requestedServiceObjectiveId": {
                     "type": "string",
-                    "format":"uuid",
+                    "format": "uuid",
                     "description": "Gets or sets the service objective to be applied to the Azure Sql Database being created or updated."
                 },
                 "requestedServiceObjectiveName": {
@@ -483,7 +1527,7 @@
                 "currentServiceObjectiveId": {
                     "readOnly": true,
                     "type": "string",
-                    "format":"uuid",
+                    "format": "uuid",
                     "description": "Gets the current Service Level Objective Id of the Azure SQL Database. This is the Id of the Service Level Objective that is currently active."
                 },
                 "databaseId": {
@@ -522,7 +1566,7 @@
                 },
                 "requestedServiceObjectiveId": {
                     "type": "string",
-                    "format":"uuid",
+                    "format": "uuid",
                     "description": "Gets the configured Service Level Objective Id of the Azure SQL Database. This is the Service Level Objective that is being applied to the Azure SQL Database."
                 },
                 "requestedServiceObjectiveName": {
@@ -1187,6 +2231,14 @@
             "x-ms-parameter-location": "method"
         },
         "ServerNameParameter": {
+            "name": "serverName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the Azure SQL Server",
+            "x-ms-parameter-location": "method"
+        },
+        "ServerNameParameterGeneric": {
             "name": "serverName",
             "in": "path",
             "required": true,
