@@ -25,13 +25,6 @@
                 "description": "Pause an Azure SQL Data Warehouse database.",
                 "parameters": [
                     {
-                        "name": "databaseName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Data Warehouse database to pause."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -42,6 +35,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Data Warehouse database to pause."
                     }
                 ],
                 "responses": {
@@ -64,13 +64,6 @@
                 "description": "Resume an Azure SQL Data Warehouse database.",
                 "parameters": [
                     {
-                        "name": "databaseName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Data Warehouse database to resume."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -81,6 +74,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Data Warehouse database to resume."
                     }
                 ],
                 "responses": {
@@ -103,13 +103,6 @@
                 "description": "Returns a list of Azure SQL database restore points.",
                 "parameters": [
                     {
-                        "name": "databaseName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Database from which to retrieve available restore points."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -120,6 +113,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database from which to retrieve available restore points."
                     }
                 ],
                 "responses": {
@@ -144,6 +144,18 @@
                 "description": "Creates a new Azure SQL database or updates an existing Azure SQL database.",
                 "parameters": [
                     {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
                         "name": "databaseName",
                         "in": "path",
                         "required": true,
@@ -158,18 +170,6 @@
                             "$ref": "#/definitions/Database"
                         },
                         "description": "The required parameters for creating or updating a database."
-                    },
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameter"
                     }
                 ],
                 "responses": {
@@ -199,13 +199,6 @@
                 "description": "Deletes an Azure SQL database.",
                 "parameters": [
                     {
-                        "name": "databaseName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Database to be deleted."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -216,6 +209,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database to be deleted."
                     }
                 ],
                 "responses": {
@@ -235,6 +235,18 @@
                 "description": "Returns information about an Azure SQL database.",
                 "parameters": [
                     {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
                         "name": "databaseName",
                         "in": "path",
                         "required": true,
@@ -247,18 +259,6 @@
                         "required": false,
                         "type": "string",
                         "description": "The comma separated list of child objects to expand in the response."
-                    },
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameter"
                     }
                 ],
                 "responses": {
@@ -280,13 +280,6 @@
                 "description": "Returns information about an Azure SQL Database.",
                 "parameters": [
                     {
-                        "name": "$filter",
-                        "in": "query",
-                        "required": false,
-                        "type": "string",
-                        "description": "The filter to apply on the operation."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -297,6 +290,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "The filter to apply on the operation."
                     }
                 ],
                 "responses": {
@@ -322,6 +322,18 @@
                 "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
                 "parameters": [
                     {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
                         "name": "elasticPoolName",
                         "in": "path",
                         "required": true,
@@ -334,18 +346,6 @@
                         "required": true,
                         "type": "string",
                         "description": "The name of the Azure SQL Database to be retrieved."
-                    },
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameter"
                     }
                 ],
                 "responses": {
@@ -367,13 +367,6 @@
                 "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
                 "parameters": [
                     {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -384,6 +377,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
                     }
                 ],
                 "responses": {
@@ -408,15 +408,6 @@
                 "description": "Creates a new Azure SQL Server.",
                 "parameters": [
                     {
-                        "name": "parameters",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Server"
-                        },
-                        "description": "The required parameters for createing or updating a server."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -427,6 +418,15 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Server"
+                        },
+                        "description": "The required parameters for createing or updating a server."
                     }
                 ],
                 "responses": {
@@ -603,15 +603,6 @@
                 "description": "Start an Azure SQL Server Upgrade.",
                 "parameters": [
                     {
-                        "name": "parameters",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ServerUpgradeStartParameters"
-                        },
-                        "description": "The required parameters for the Azure SQL Server Upgrade."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -622,6 +613,15 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServerUpgradeStartParameters"
+                        },
+                        "description": "The required parameters for the Azure SQL Server Upgrade."
                     }
                 ],
                 "responses": {
@@ -640,6 +640,18 @@
                 "description": "Creates a new Azure SQL elastic pool or updates an existing Azure SQL elastic pool.",
                 "parameters": [
                     {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
                         "name": "elasticPoolName",
                         "in": "path",
                         "required": true,
@@ -651,21 +663,9 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/ElasticPoolCreateOrUpdateParameters"
+                            "$ref": "#/definitions/ElasticPool"
                         },
                         "description": "The required parameters for createing or updating an Elastic Pool."
-                    },
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameterGeneric"
                     }
                 ],
                 "responses": {
@@ -695,13 +695,6 @@
                 "description": "Deletes the Azure SQL elastic pool.",
                 "parameters": [
                     {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool to be deleted."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -712,6 +705,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be deleted."
                     }
                 ],
                 "responses": {
@@ -731,13 +731,6 @@
                 "description": "Returns information about an Azure SQL elastic pool.",
                 "parameters": [
                     {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -748,6 +741,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
                     }
                 ],
                 "responses": {
@@ -803,13 +803,6 @@
                 "description": "Returns information about Azure SQL elastic pool activities.",
                 "parameters": [
                     {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool for which to get the current activity."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -820,6 +813,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool for which to get the current activity."
                     }
                 ],
                 "responses": {
@@ -878,54 +878,6 @@
         }
     },
     "definitions": {
-        "ElasticPoolCreateOrUpdateProperties": {
-            "properties": {
-                "edition": {
-                    "type": "string",
-                    "description": "Gets or sets the edition for the Azure SQL Elastic Pool being updated or created."
-                },
-                "dtu": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Gets or sets the total shared DTU for the Sql Azure Database Elastic Pool.This must agree with the StorageMB if both are specified."
-                },
-                "storageMB": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Gets or sets storage limit for the Sql Azure Database Elastic Pool in MB.This must agree with the Dtu if both are specified."
-                },
-                "databaseDtuMin": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Gets or sets the minimum DTU all Sql Azure Databases are guaranteed."
-                },
-                "databaseDtuMax": {
-                    "readOnly": true,
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "Gets the maximum DTU any one Sql Azure Database can consume."
-                }
-            },
-            "description": "Create or update Azure SQL Elastic Pool parameters properties."
-        },
-        "ElasticPoolCreateOrUpdateParameters": {
-            "properties": {
-                "properties": {
-                    "$ref": "#/definitions/ElasticPoolCreateOrUpdateProperties",
-                    "description": "Gets or sets the properties of the request.",
-                    "x-ms-client-flatten": true
-                }
-            },
-            "required": [
-                "properties"
-            ],
-            "allOf": [
-                {
-                    "$ref": "#/definitions/Resource"
-                }
-            ],
-            "description": "Create or update Sql Azure Database Elastic Pool parameters."
-        },
         "ElasticPoolProperties": {
             "properties": {
                 "creationDate": {
@@ -940,7 +892,6 @@
                     "description": "Gets the state of the Azure SQL Elastic Pool."
                 },
                 "edition": {
-                    "readOnly": true,
                     "type": "string",
                     "description": "Gets the edition of the Azure SQL Elastic Pool.",
                     "enum": [
@@ -954,25 +905,21 @@
                     }
                 },
                 "dtu": {
-                    "readOnly": true,
                     "type": "integer",
                     "format": "int32",
                     "description": "Gets the total shared DTU for the Sql Azure Database Elastic Pool."
                 },
                 "databaseDtuMax": {
-                    "readOnly": true,
                     "type": "integer",
                     "format": "int32",
                     "description": "Gets the maximum DTU any one Sql Azure Database can consume."
                 },
                 "databaseDtuMin": {
-                    "readOnly": true,
                     "type": "integer",
                     "format": "int32",
                     "description": "Gets the minimum DTU all Sql Azure Databases are guaranteed."
                 },
                 "storageMB": {
-                    "readOnly": true,
                     "type": "integer",
                     "format": "int32",
                     "description": "Gets storage limit for the Sql Azure Database Elastic Pool in MB."
@@ -993,7 +940,7 @@
                     "$ref": "#/definitions/Resource"
                 }
             ],
-            "description": "Represents an Azure SQL Elastic Pool (Elastic Pool)."
+            "description": "Represents an Azure SQL Database elastic pool."
         },
         "ElasticPoolListResult": {
             "properties": {
@@ -1248,7 +1195,6 @@
                     "description": "The fully qualified domain name of the server."
                 },
                 "version": {
-                    "readOnly": true,
                     "type": "string",
                     "description": "The version of the server."
                 },
@@ -1410,107 +1356,132 @@
             },
             "description": "Represents the properties of a Azure SQL Recommended Elastic Pool being upgraded."
         },
-        "ServerCreateOrUpdateProperties": {
+        "RecommendedIndexProperties": {
             "properties": {
-                "version": {
+                "action": {
+                    "readOnly": true,
                     "type": "string",
-                    "description": "Gets or sets the version for the server being updated or created."
+                    "description": "Gets the proposed index action. We suggest user to create missing index, drop unused index or to rebuild already existing index to improve its performance. Possible values are 'Create', 'Drop', 'Rebuild'."
                 },
-                "administratorLogin": {
+                "state": {
+                    "readOnly": true,
                     "type": "string",
-                    "description": "Gets or sets the Administrator Login of the server being created."
+                    "description": "Gets the state recommendation is in. Current options are: 'Active', 'Pending', 'Executing', 'Verifying', 'Pending Revert', 'Reverting', 'Reverted', 'Ignored', 'Expired', 'Blocked', 'Success'."
                 },
-                "administratorLoginPassword": {
+                "created": {
+                    "readOnly": true,
                     "type": "string",
-                    "description": "Gets or sets the Administrator Login Password of the server being created or updated."
+                    "format": "date-time",
+                    "description": "Gets the UTC datetime showing when this resource was created."
+                },
+                "lastModified": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the UTC datetime of when was this resource last changed."
+                },
+                "indexType": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)"
+                },
+                "schema": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the schema where table to build index over resides"
+                },
+                "table": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the table on which to build index."
+                },
+                "columns": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Columns over which to build index"
+                },
+                "includedColumns": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Gets the list of column names to be included in the index"
+                },
+                "indexScript": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the full build index script"
+                },
+                "estimatedImpact": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OperationImpact"
+                    },
+                    "description": "Gets the estimated impact of doing recommended index action."
+                },
+                "reportedImpact": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OperationImpact"
+                    },
+                    "description": "Gets the values reported after index action is complete."
                 }
             },
-            "description": "Create or update server parameters properties."
+            "description": "Represents the properties of an Azure SQL Database recommended index."
         },
-        "ServerCreateOrUpdateParameters": {
+        "RecommendedIndex": {
             "properties": {
                 "properties": {
-                    "$ref": "#/definitions/ServerCreateOrUpdateProperties",
-                    "description": "Gets or sets the properties of the request.",
-                    "x-ms-client-flatten": true
+                    "$ref": "#/definitions/RecommendedIndexProperties",
+                    "readOnly": true,
+                    "x-ms-client-flatten": true,
+                    "description": "Gets the properties representing the resource."
                 }
             },
-            "required": [
-                "properties"
-            ],
             "allOf": [
                 {
                     "$ref": "#/definitions/Resource"
                 }
             ],
-            "description": "Create or update server parameters."
+            "description": "Represents an Azure SQL Database recommended index."
         },
-        "DatabaseCreateOrUpdateProperties": {
+        "TransparentDataEncryptionProperties": {
             "properties": {
-                "edition": {
+                "status": {
                     "type": "string",
-                    "description": "Gets or sets the edition for the Azure Sql Database being updated or created."
-                },
-                "collation": {
-                    "type": "string",
-                    "description": "Gets or sets the collation of the Azure Sql Database being created.  You cannot change change the collation of an existing Azure Sql Database."
-                },
-                "maxSizeBytes": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "Gets or sets the maximum size of the Azure Sql Database being created or updated in bytes."
-                },
-                "requestedServiceObjectiveId": {
-                    "type": "string",
-                    "format": "uuid",
-                    "description": "Gets or sets the service objective to be applied to the Azure Sql Database being created or updated."
-                },
-                "requestedServiceObjectiveName": {
-                    "type": "string",
-                    "description": "Gets or sets the service objective to be applied to the Azure Sql Database being created or updated."
-                },
-                "elasticPoolName": {
-                    "type": "string",
-                    "description": "Gets or sets the name of the Elastic Pool to put the Azure Sql Database in."
-                },
-                "sourceDatabaseId": {
-                    "type": "string",
-                    "description": "Gets or sets the resource id of the database to use as the source for the copy being created."
-                },
-                "createMode": {
-                    "type": "string",
-                    "description": "Gets or sets the create Mode for the Azure Sql Database database being created.",
+                    "description": "Gets the status of the Azure SQL Database Transparent Data Encryption.",
                     "enum": [
-                        "Default",
-                        "Copy",
-                        "Secondary",
-                        "NonReadableSecondary"
+                        "Enabled",
+                        "Disabled"
                     ],
                     "x-ms-enum": {
-                        "name": "DatabaseCreateMode",
+                        "name": "TransparentDataEncryptionStates",
                         "modelAsString": true
                     }
                 }
             },
-            "description": "Create or update Azure Sql Database parameters properties."
+            "description": "Represents the properties of an Azure SQL Database Transparent Data Encryption."
         },
-        "DatabaseCreateOrUpdateParameters": {
+        "TransparentDataEncryption": {
             "properties": {
                 "properties": {
-                    "$ref": "#/definitions/DatabaseCreateOrUpdateProperties",
-                    "description": "Gets or sets the properties of the request.",
-                    "x-ms-client-flatten": true
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/TransparentDataEncryptionProperties",
+                    "description": "Represents the properties of the resource."
                 }
             },
-            "required": [
-                "properties"
-            ],
             "allOf": [
                 {
-                    "$ref": "#/definitions/Resource"
+                    "$ref": "#/definitions/SubResource"
                 }
             ],
-            "description": "Create or update Sql Azure Database parameters."
+            "description": "Represents an Azure SQL Database Transparent Data Encryption ."
         },
         "DatabaseProperties": {
             "properties": {
@@ -1585,9 +1556,13 @@
                     "description": "Gets the status of the Azure SQL Database."
                 },
                 "elasticPoolName": {
-                    "readOnly": true,
                     "type": "string",
                     "description": "Gets the name of the Azure SQL Elastic Pool the database is in."
+                },
+                "defaultSecondaryLocation": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the default secondary region for this database."
                 },
                 "serviceTierAdvisors": {
                     "readOnly": true,
@@ -1610,10 +1585,21 @@
                     },
                     "description": "Gets the schemas from this database."
                 },
-                "defaultSecondaryLocation": {
+                "transparentDataEncryption": {
                     "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the default secondary region for this database."
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransparentDataEncryption"
+                    },
+                    "description": "Gets the transparent data encryption info for this database."
+                },
+                "recommendedIndex": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecommendedIndex"
+                    },
+                    "description": "Gets the recommended indices for this database."
                 }
             },
             "description": "Represents the properties of an Azure SQL Database."
@@ -1951,101 +1937,6 @@
             },
             "description": "Represents impact of an operation, both in absolute and relative terms."
         },
-        "RecommendedIndexProperties": {
-            "properties": {
-                "action": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the proposed index action. We suggest user to create missing index, drop unused index or to rebuild already existing index to improve its performance. Possible values are 'Create', 'Drop', 'Rebuild'."
-                },
-                "state": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the state recommendation is in. Current options are: 'Active', 'Pending', 'Executing', 'Verifying', 'Pending Revert', 'Reverting', 'Reverted', 'Ignored', 'Expired', 'Blocked', 'Success'."
-                },
-                "created": {
-                    "readOnly": true,
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Gets the UTC datetime showing when this resource was created."
-                },
-                "lastModified": {
-                    "readOnly": true,
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "Gets the UTC datetime of when was this resource last changed."
-                },
-                "indexType": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)"
-                },
-                "schema": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the schema where table to build index over resides"
-                },
-                "table": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the table on which to build index."
-                },
-                "columns": {
-                    "readOnly": true,
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Columns over which to build index"
-                },
-                "includedColumns": {
-                    "readOnly": true,
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Gets the list of column names to be included in the index"
-                },
-                "indexScript": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Gets the full build index script"
-                },
-                "estimatedImpact": {
-                    "readOnly": true,
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/OperationImpact"
-                    },
-                    "description": "Gets the estimated impact of doing recommended index action."
-                },
-                "reportedImpact": {
-                    "readOnly": true,
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/OperationImpact"
-                    },
-                    "description": "Gets the values reported after index action is complete."
-                }
-            },
-            "description": "Represents the properties of an Azure SQL Database recommended index."
-        },
-        "RecommendedIndex": {
-            "properties": {
-                "properties": {
-                    "$ref": "#/definitions/RecommendedIndexProperties",
-                    "readOnly": true,
-                    "description": "Gets the properties representing the resource.",
-                    "x-ms-client-flatten": true
-                }
-            },
-            "allOf": [
-                {
-                    "$ref": "#/definitions/Resource"
-                }
-            ],
-            "description": "Represents an Azure SQL Database recommended index."
-        },
         "Column": {
             "properties": {
                 "properties": {
@@ -2164,15 +2055,15 @@
         "Resource": {
             "description": "Resource properties",
             "properties": {
-                "id": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Resource Id"
-                },
                 "name": {
                     "readOnly": true,
                     "type": "string",
                     "description": "Resource name"
+                },
+                "id": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Resource Id"
                 },
                 "type": {
                     "readOnly": true,
@@ -2199,7 +2090,13 @@
         "SubResource": {
             "description": "Subresource properties",
             "properties": {
+                "name": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Resource name"
+                },
                 "id": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Resource Id"
                 }

@@ -25,6 +25,18 @@
                 "description": "Creates or updates an Azure SQL server firewall rule.",
                 "parameters": [
                     {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
                         "name": "firewallRule",
                         "in": "path",
                         "required": true,
@@ -36,21 +48,9 @@
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/FirewallRuleCreateOrUpdateParameters"
+                            "$ref": "#/definitions/FirewallRule"
                         },
                         "description": "The required parameters for createing or updating a firewall rule."
-                    },
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameterGeneric"
                     }
                 ],
                 "responses": {
@@ -76,13 +76,6 @@
                 "description": "Deletes an Azure SQL server firewall rule.",
                 "parameters": [
                     {
-                        "name": "firewallRule",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Server Firewall Rule."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -93,6 +86,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "firewallRule",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Server Firewall Rule."
                     }
                 ],
                 "responses": {
@@ -112,13 +112,6 @@
                 "description": "Returns an Azure SQL server firewall rule.",
                 "parameters": [
                     {
-                        "name": "firewallRule",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Server Firewall Rule."
-                    },
-                    {
                         "$ref": "#/parameters/ApiVersionParameter"
                     },
                     {
@@ -129,6 +122,13 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "firewallRule",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Server Firewall Rule."
                     }
                 ],
                 "responses": {
@@ -177,41 +177,13 @@
         }
     },
     "definitions": {
-        "FirewallRuleCreateOrUpdateProperties": {
-            "properties": {
-                "startIpAddress": {
-                    "type": "string",
-                    "description": "Gets or sets the start IP address for the firewall rule being updated or created."
-                },
-                "endIpAddress": {
-                    "type": "string",
-                    "description": "Gets or sets the end IP address of the firewall rule being created."
-                }
-            },
-            "description": "Create or update Firewall Rule parameters properties."
-        },
-        "FirewallRuleCreateOrUpdateParameters": {
-            "properties": {
-                "properties": {
-                    "$ref": "#/definitions/FirewallRuleCreateOrUpdateProperties",
-                    "description": "Gets or sets the properties of the request.",
-                    "x-ms-client-flatten": true
-                }
-            },
-            "required": [
-                "properties"
-            ],
-            "description": "Create or update Firewall Rule parameters."
-        },
         "FirewallRuleProperties": {
             "properties": {
                 "startIpAddress": {
-                    "readOnly": true,
                     "type": "string",
                     "description": "Gets the start IP address of the Azure SQL Database Firewall Rule."
                 },
                 "endIpAddress": {
-                    "readOnly": true,
                     "type": "string",
                     "description": "Gets the end IP address of the Azure SQL Database Firewall Rule."
                 }
@@ -228,7 +200,7 @@
             },
             "allOf": [
                 {
-                    "$ref": "#/definitions/Resource"
+                    "$ref": "#/definitions/SubResource"
                 }
             ],
             "description": "Represents an Azure SQL Server Firewall Rule."
@@ -248,15 +220,15 @@
         "Resource": {
             "description": "Resource properties",
             "properties": {
-                "id": {
-                    "readOnly": true,
-                    "type": "string",
-                    "description": "Resource Id"
-                },
                 "name": {
                     "readOnly": true,
                     "type": "string",
                     "description": "Resource name"
+                },
+                "id": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Resource Id"
                 },
                 "type": {
                     "readOnly": true,
@@ -283,7 +255,13 @@
         "SubResource": {
             "description": "Subresource properties",
             "properties": {
+                "name": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Resource name"
+                },
                 "id": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Resource Id"
                 }

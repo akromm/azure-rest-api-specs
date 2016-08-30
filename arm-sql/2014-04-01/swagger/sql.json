@@ -77,6 +77,18 @@
         "description": "Imports a bacpac to Azure SQL Database.",
         "parameters": [
           {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ServerNameParameterGeneric"
+          },
+          {
             "name": "databaseName",
             "in": "path",
             "required": true,
@@ -91,18 +103,6 @@
               "$ref": "#/definitions/ImportExtensionRequestParameters"
             },
             "description": "The required parameters for importing a Bacpac into a database."
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ServerNameParameterGeneric"
           }
         ],
         "responses": {
@@ -6029,21 +6029,24 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the Resource Group to which the resource belongs."
+      "description": "The name of the Resource Group to which the resource belongs.",
+      "x-ms-parameter-location": "method"
     },
     "ServerNameParameter": {
       "name": "serverName",
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the Azure SQL Server on which the Azure SQL Database is hosted."
+      "description": "The name of the Azure SQL Server",
+      "x-ms-parameter-location": "method"
     },
     "ServerNameParameterGeneric": {
       "name": "serverName",
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The name of the Azure SQL Server"
+      "description": "The name of the Azure SQL Server",
+      "x-ms-parameter-location": "method"
     }
   }
 }
