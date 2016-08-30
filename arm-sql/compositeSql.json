@@ -8,6 +8,9 @@
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/sql.core.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverFirewallRules.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/importExport.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverDisasterRecoveryConfiguration.json"
+    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverDisasterRecoveryConfiguration.json",
+    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/recoverableDatabases.json",
+    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/auditingPolicies.json",
+    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/dataMasking.json"
   ]
 }
