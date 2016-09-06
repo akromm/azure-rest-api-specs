@@ -354,92 +354,6 @@
                 }
             }
         },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/databases/{databaseName}": {
-            "get": {
-                "tags": [
-                    "ElasticPools"
-                ],
-                "operationId": "ElasticPools_GetDatabases",
-                "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameter"
-                    },
-                    {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
-                    },
-                    {
-                        "name": "databaseName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Database to be retrieved."
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/Database"
-                        }
-                    }
-                }
-            }
-        },
-        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/databases": {
-            "get": {
-                "tags": [
-                    "ElasticPools"
-                ],
-                "operationId": "ElasticPools_ListDatabases",
-                "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
-                "parameters": [
-                    {
-                        "$ref": "#/parameters/ApiVersionParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/SubscriptionIdParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ResourceGroupParameter"
-                    },
-                    {
-                        "$ref": "#/parameters/ServerNameParameter"
-                    },
-                    {
-                        "name": "elasticPoolName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string",
-                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/DatabaseListResult"
-                        }
-                    }
-                },
-                "x-ms-pageable": {
-                    "nextLinkName": null
-                }
-            }
-        },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}": {
             "put": {
                 "tags": [
@@ -916,9 +830,453 @@
                     "nextLinkName": null
                 }
             }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/databases/{databaseName}": {
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_GetDatabases",
+                "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Database"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}/databases": {
+            "get": {
+                "tags": [
+                    "ElasticPools"
+                ],
+                "operationId": "ElasticPools_ListDatabases",
+                "description": "Returns information about an Azure SQL database inside of an Azure SQL elastic pool.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "elasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/DatabaseListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recommendedElasticPools/{recommendedElasticPoolName}": {
+            "get": {
+                "tags": [
+                    "RecommendedElasticPools"
+                ],
+                "operationId": "RecommendedElasticPools_Get",
+                "description": "Returns information about an Azure SQL Recommended Elastic Pool.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "recommendedElasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Recommended Elastic Pool to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/RecommendedElasticPool"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recommendedElasticPools/{recommendedElasticPoolName}/databases/{databaseName}": {
+            "get": {
+                "tags": [
+                    "RecommendedElasticPools"
+                ],
+                "operationId": "RecommendedElasticPools_GetDatabases",
+                "description": "Returns information about an Azure SQL Database inside of an Azure Sql Recommended Elastic Pool.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "recommendedElasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Elastic Pool to be retrieved."
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/Database"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recommendedElasticPools": {
+            "get": {
+                "tags": [
+                    "RecommendedElasticPools"
+                ],
+                "operationId": "RecommendedElasticPools_List",
+                "description": "Returns information about Azure SQL Recommended Elastic Pools.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/RecommendedElasticPoolListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recommendedElasticPools/{recommendedElasticPoolName}/databases": {
+            "get": {
+                "tags": [
+                    "RecommendedElasticPools"
+                ],
+                "operationId": "RecommendedElasticPools_ListDatabases",
+                "description": "Returns information about an Azure SQL Database inside of an Azure Sql Recommended Elastic Pool.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "recommendedElasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Recommended Elastic Pool to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/DatabaseListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/recommendedElasticPools/{recommendedElasticPoolName}/metrics": {
+            "get": {
+                "tags": [
+                    "RecommendedElasticPools"
+                ],
+                "operationId": "RecommendedElasticPools_ListMetrics",
+                "description": "Returns information about an recommended elastic pool metrics.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "recommendedElasticPoolName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Recommended Elastic Pool to be retrieved."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/RecommendedElasticPoolListMetricsResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
         }
     },
     "definitions": {
+        "RecommendedElasticPoolMetric": {
+            "properties": {
+                "dateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets or sets the time of metric."
+                },
+                "dtu": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets or sets the DTU."
+                },
+                "sizeGB": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets or sets size in gigabytes."
+                }
+            },
+            "description": "Represents Azure SQL recommended elastic pool metric."
+        },
+        "RecommendedElasticPoolProperties": {
+            "properties": {
+                "databaseEdition": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the edition of the Azure SQL Recommended Elastic Pool. The ElasticPoolEditions enumeration contains all the valid editions.",
+                    "enum": [
+                        "Basic",
+                        "Standard",
+                        "Premium"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ElasticPoolEditions",
+                        "modelAsString": true
+                    }
+                },
+                "dtu": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets the DTU for the Sql Azure Recommended Elastic Pool."
+                },
+                "databaseDtuMin": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets the minimum DTU for the database."
+                },
+                "databaseDtuMax": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets the maximum DTU for the database."
+                },
+                "storageMB": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets storage size in megabytes."
+                },
+                "observationPeriodStart": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the observation period start."
+                },
+                "observationPeriodEnd": {
+                    "readOnly": true,
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets the observation period start."
+                },
+                "maxObservedDtu": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets maximum observed DTU."
+                },
+                "maxObservedStorageMB": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets maximum observed storage in megabytes."
+                },
+                "databases": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Database"
+                    },
+                    "description": "Gets the list of Azure Sql Databases in this pool. Expanded property"
+                },
+                "metrics": {
+                    "readOnly": true,
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecommendedElasticPoolMetric"
+                    },
+                    "description": "Gets the list of Azure Sql Databases housed in the server. Expanded property"
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Recommended Elastic Pool."
+        },
+        "RecommendedElasticPool": {
+            "properties": {
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/RecommendedElasticPoolProperties",
+                    "description": "Gets or sets the properites representing the resource."
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Resource"
+                }
+            ],
+            "description": "Represents an Azure SQL Recommended Elastic Pool."
+        },
+        "RecommendedElasticPoolListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecommendedElasticPool"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Recommended Elastic Pools hosted in the server."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Recommended Elastic Pool request."
+        },
+        "RecommendedElasticPoolListMetricsResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RecommendedElasticPoolMetric"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Recommended Elastic Pools metrics."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Recommended Elastic Pool metrics request."
+        },
+        "RecommendedDatabaseProperties": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "description": "Gets or sets the name of the Azure SQL Database being upgraded."
+                },
+                "TargetEdition": {
+                    "type": "string",
+                    "description": "Gets or sets the target edition for the Azure SQL Database being upgraded."
+                },
+                "TargetServiceLevelObjective": {
+                    "type": "string",
+                    "description": "Gets or sets the target Service Level Objective for the Azure SQL Database being upgraded."
+                }
+            },
+            "description": "Represents the properties of a recommended Azure SQL Database being upgraded."
+        },
         "ElasticPoolProperties": {
             "properties": {
                 "creationDate": {
@@ -1264,23 +1622,6 @@
                 }
             ],
             "description": "Represents an Azure SQL Server."
-        },
-        "RecommendedDatabaseProperties": {
-            "properties": {
-                "Name": {
-                    "type": "string",
-                    "description": "Gets or sets the name of the Azure SQL Database being upgraded."
-                },
-                "TargetEdition": {
-                    "type": "string",
-                    "description": "Gets or sets the target edition for the Azure SQL Database being upgraded."
-                },
-                "TargetServiceLevelObjective": {
-                    "type": "string",
-                    "description": "Gets or sets the target Service Level Objective for the Azure SQL Database being upgraded."
-                }
-            },
-            "description": "Represents the properties of a recommended Azure SQL Database being upgraded."
         },
         "ServerListResult": {
             "properties": {
