@@ -586,6 +586,40 @@
                 }
             }
         },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/usages": {
+            "get": {
+                "tags": [
+                    "Servers"
+                ],
+                "operationId": "Servers_ListUsages",
+                "description": "Returns information about Azure SQL Server usage.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServerMetricListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/elasticPools/{elasticPoolName}": {
             "put": {
                 "tags": [
@@ -1108,6 +1142,294 @@
                         "description": "",
                         "schema": {
                             "$ref": "#/definitions/RecommendedElasticPoolListMetricsResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/serviceTierAdvisors/{serviceTierAdvisorName}": {
+            "get": {
+                "tags": [
+                    "ServiceTierAdvisors"
+                ],
+                "operationId": "Databases_GetServiceTierAdvisor",
+                "description": "Returns information about a service tier advisor.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of database."
+                    },
+                    {
+                        "name": "serviceTierAdvisorName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of service tier advisor."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceTierAdvisor"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/serviceTierAdvisors": {
+            "get": {
+                "tags": [
+                    "ServiceTierAdvisors"
+                ],
+                "operationId": "Databases_ListServiceTierAdvisors",
+                "description": "Returns information about service tier advisors for specified database.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of database."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceTierAdvisorListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives/{serviceObjectiveName}": {
+            "get": {
+                "tags": [
+                    "ServiceObjectives"
+                ],
+                "operationId": "Servers_GetServiceObjective",
+                "description": "Returns information about an Azure SQL Database Service Objective.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    },
+                    {
+                        "name": "serviceObjectiveName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the service objective to retrieve."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceObjective"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/serviceObjectives": {
+            "get": {
+                "tags": [
+                    "ServiceObjectives"
+                ],
+                "operationId": "Servers_ListServiceObjectives",
+                "description": "Returns information about Azure SQL Database Service Objectives.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameterGeneric"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceObjectiveListResult"
+                        }
+                    }
+                },
+                "x-ms-pageable": {
+                    "nextLinkName": null
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/current": {
+            "put": {
+                "tags": [
+                    "TransparentDataEncryption"
+                ],
+                "operationId": "Databases_CreateOrUpdateTransparentDataEncryption",
+                "description": "Creates or updates an Azure SQL Database Transparent Data Encryption Operation.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database for which setting the Transparent Data Encryption applies."
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TransparentDataEncryption"
+                        },
+                        "description": "The required parameters for creating or updating transparent data encryption."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/TransparentDataEncryption"
+                        }
+                    },
+                    "201": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/TransparentDataEncryption"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "TransparentDataEncryption"
+                ],
+                "operationId": "Databases_GetTransparentDataEncryption",
+                "description": "Returns an Azure SQL Database Transparent Data Encryption Response.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database for which the Transparent Data Encryption applies."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/TransparentDataEncryption"
+                        }
+                    }
+                }
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/current/operationResults": {
+            "get": {
+                "tags": [
+                    "TransparentDataEncryption"
+                ],
+                "operationId": "Databases_ListTransparentDataEncryptionActivity",
+                "description": "Returns an Azure SQL Database Transparent Data Encryption Activity Response.",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/ApiVersionParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ResourceGroupParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ServerNameParameter"
+                    },
+                    {
+                        "name": "databaseName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "The name of the Azure SQL Database for which the Transparent Data Encryption applies."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/TransparentDataEncryptionActivityListResult"
                         }
                     }
                 },
@@ -2400,6 +2722,170 @@
                 }
             },
             "description": "Represents the response to a List Azure Sql Database metrics request."
+        },
+        "ServerMetric": {
+            "properties": {
+                "resourceName": {
+                    "type": "string",
+                    "description": "Gets or sets the name of the resource."
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Gets or sets the metric display name."
+                },
+                "currentValue": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets or sets the current value of the metric."
+                },
+                "limit": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Gets or sets the current limit of the metric."
+                },
+                "unit": {
+                    "type": "string",
+                    "description": "Gets or sets the units of the metric."
+                },
+                "nextResetTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Gets or sets the next reset time for the metric."
+                }
+            },
+            "description": "Represents Azure SQL Server metrics."
+        },
+        "ServerMetricListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServerMetric"
+                    },
+                    "description": "Gets or sets the list of Azure SQL Server metrics for the server."
+                }
+            },
+            "description": "Represents the response to a List Azure SQL Server metrics request."
+        },
+        "ServiceTierAdvisorListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceTierAdvisor"
+                    },
+                    "description": "Gets or sets the list of service tier advisors for specified database."
+                }
+            },
+            "description": "Represents the response to a list service tier advisor request."
+        },
+        "ServiceObjectiveProperties": {
+            "properties": {
+                "serviceObjectiveName": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the name for the service objective."
+                },
+                "isDefault": {
+                    "readOnly": true,
+                    "type": "boolean",
+                    "description": "Gets whether the service level objective is the default service objective."
+                },
+                "isSystem": {
+                    "readOnly": true,
+                    "type": "boolean",
+                    "description": "Gets whether the service level objective is a system service objective."
+                },
+                "description": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the description for the service level objective."
+                },
+                "enabled": {
+                    "readOnly": true,
+                    "type": "boolean",
+                    "description": "Gets whether the service level objective is enabled."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Database Service Objective."
+        },
+        "ServiceObjective": {
+            "properties": {
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/ServiceObjectiveProperties",
+                    "description": "Represents the properties of the resource."
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SubResource"
+                }
+            ],
+            "description": "Represents an Azure SQL Database Service Objective."
+        },
+        "ServiceObjectiveListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceObjective"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Database Service Objectives."
+                }
+            },
+            "description": "Represents the response to a Get Azure Sql Database Service Objectives request."
+        },
+        "TransparentDataEncryptionActivityProperties": {
+            "properties": {
+                "status": {
+                    "readOnly": true,
+                    "type": "string",
+                    "description": "Gets the status of the Azure SQL Database.",
+                    "enum": [
+                        "Encrypting",
+                        "Decrypting"
+                    ],
+                    "x-ms-enum": {
+                        "name": "TransparentDataEncryptionActivityStates",
+                        "modelAsString": true
+                    }
+                },
+                "percentComplete": {
+                    "readOnly": true,
+                    "type": "number",
+                    "format": "float",
+                    "description": "Gets the percent complete of the transparent data encryption scan for a Azure SQL Database."
+                }
+            },
+            "description": "Represents the properties of an Azure SQL Database Transparent Data Encryption Scan."
+        },
+        "TransparentDataEncryptionActivity": {
+            "properties": {
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/TransparentDataEncryptionActivityProperties",
+                    "description": "Represents the properties of the resource."
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/SubResource"
+                }
+            ],
+            "description": "Represents an Azure SQL Database Transparent Data Encryption Scan."
+        },
+        "TransparentDataEncryptionActivityListResult": {
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TransparentDataEncryptionActivity"
+                    },
+                    "description": "Gets or sets the list of Azure Sql Database Transparent Data Encryption Activities."
+                }
+            },
+            "description": "Represents the response to a List Azure Sql Database Transparent Data Encryption Activity request."
         },
         "Resource": {
             "description": "Resource properties",
