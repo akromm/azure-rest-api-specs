@@ -3,18 +3,30 @@
   "info": {
     "version": "2015-05-01-preview",
     "title": "SqlManagementClient",
-    "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities."
+    "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your Job Accounts."
   },
   "host": "management.azure.com",
-  "schemes": [ "https" ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts": {
       "get": {
-        "tags": [ "JobAccounts" ],
+        "tags": [
+          "JobAccounts"
+        ],
         "description": "Returns information about Azure SQL Job Accounts.",
         "operationId": "JobAccounts_List",
-        "consumes": [ ],
-        "produces": [ "application/json", "text/json" ],
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -48,11 +60,15 @@
         "responses": {
           "200": {
             "description": "Successfully retrieved the list of job accounts.",
-            "schema": { "$ref": "#/definitions/JobAccountResourceList" }
+            "schema": {
+              "$ref": "#/definitions/JobAccountResourceList"
+            }
           },
           "default": {
             "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found",
-            "schema": { "$ref": "#/definitions/ArmErrorResponseMessage" }
+            "schema": {
+              "$ref": "#/definitions/ArmErrorResponseMessage"
+            }
           }
         },
         "deprecated": false
@@ -60,11 +76,16 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}": {
       "get": {
-        "tags": [ "JobAccounts" ],
+        "tags": [
+          "JobAccounts"
+        ],
         "description": "Returns information about an Azure SQL Job Account.",
         "operationId": "JobAccounts_Get",
-        "consumes": [ ],
-        "produces": [ "application/json", "text/json" ],
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -105,21 +126,33 @@
         "responses": {
           "200": {
             "description": "Successfully retrieved the specified job account.",
-            "schema": { "$ref": "#/definitions/JobAccountResource" }
+            "schema": {
+              "$ref": "#/definitions/JobAccountResource"
+            }
           },
           "default": {
             "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
-            "schema": { "$ref": "#/definitions/ArmErrorResponseMessage" }
+            "schema": {
+              "$ref": "#/definitions/ArmErrorResponseMessage"
+            }
           }
         },
         "deprecated": false
       },
       "put": {
-        "tags": [ "JobAccounts" ],
+        "tags": [
+          "JobAccounts"
+        ],
         "description": "Creating a new Azure SQL Job Account or updating an existing Azure SQL Job Account.",
         "operationId": "JobAccounts_CreateOrUpdate",
-        "consumes": [ "application/json", "text/json" ],
-        "produces": [ "application/json", "text/json" ],
+        "consumes": [
+          "application/json",
+          "text/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -154,7 +187,9 @@
             "in": "body",
             "description": "The requested job account resource state.",
             "required": true,
-            "schema": { "$ref": "#/definitions/JobAccountResource" }
+            "schema": {
+              "$ref": "#/definitions/JobAccountResource"
+            }
           },
           {
             "name": "api-version",
@@ -167,15 +202,21 @@
         "responses": {
           "200": {
             "description": "Successfully updated the job account.",
-            "schema": { "$ref": "#/definitions/JobAccountResource" }
+            "schema": {
+              "$ref": "#/definitions/JobAccountResource"
+            }
           },
           "default": {
             "description": "<b>Error Responses:</b><br/>400 InvalidJobAccountCreateOrUpdateRequest - The create or update job account request body is empty or invalid.<br/>400 InvalidDatabaseResourceId - Invalid database resource identifier.<br/>400 MismatchingSubscriptionWithUrl - The provided subscription did not match the subscription in the Url.<br/>400 MismatchingResourceGroupNameWithUrl - The provided resource group name did not match the name in the Url.<br/>400 MismatchingServerNameWithUrl - The provided server name did not match the name in the Url.<br/>400 DatabaseDoesNotExist - The requested database was not found<br/>400 JobAccountExceededAccountsQuota - Could not create job account because it would exceed the quota.<br/>400 JobAccountAlreadyExists - The job account already exists on the server.<br/>400 CannotUseReservedDatabaseName - Cannot use reserved database name in this operation.<br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 SubscriptionNotFound - The requested subscription was not found.",
-            "schema": { "$ref": "#/definitions/ArmErrorResponseMessage" }
+            "schema": {
+              "$ref": "#/definitions/ArmErrorResponseMessage"
+            }
           },
           "201": {
             "description": "Successfully created the job account.",
-            "schema": { "$ref": "#/definitions/JobAccountResource" }
+            "schema": {
+              "$ref": "#/definitions/JobAccountResource"
+            }
           },
           "202": {
             "description": "Create or update has been requested."
@@ -185,11 +226,16 @@
         "x-ms-long-running-operation": true
       },
       "delete": {
-        "tags": [ "JobAccounts" ],
+        "tags": [
+          "JobAccounts"
+        ],
         "description": "Deletes the Azure SQL Job Account with the given name.",
         "operationId": "JobAccounts_Delete",
-        "consumes": [ ],
-        "produces": [ "application/json", "text/json" ],
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -228,12 +274,18 @@
           }
         ],
         "responses": {
-          "200": { "description": "Successfully deleted the job account." },
+          "200": {
+            "description": "Successfully deleted the job account."
+          },
           "default": {
             "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
-            "schema": { "$ref": "#/definitions/ArmErrorResponseMessage" }
+            "schema": {
+              "$ref": "#/definitions/ArmErrorResponseMessage"
+            }
           },
-          "204": { "description": "The specified job account does not exist." }
+          "204": {
+            "description": "The specified job account does not exist."
+          }
         },
         "deprecated": false,
         "x-ms-long-running-operation": true
@@ -241,11 +293,16 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/jobs": {
       "get": {
-        "tags": [ "Jobs" ],
+        "tags": [
+          "Jobs"
+        ],
         "description": "Returns information about Azure SQL jobs.",
         "operationId": "Jobs_List",
-        "consumes": [ ],
-        "produces": [ "application/json", "text/json" ],
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
         "parameters": [
           {
             "name": "subscriptionId",
@@ -286,11 +343,15 @@
         "responses": {
           "200": {
             "description": "Successfully retrieved the list of job accounts.",
-            "schema": { "$ref": "#/definitions/JobResourceList" }
+            "schema": {
+              "$ref": "#/definitions/JobResourceList"
+            }
           },
           "default": {
             "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found",
-            "schema": { "$ref": "#/definitions/ArmErrorResponseMessage" }
+            "schema": {
+              "$ref": "#/definitions/ArmErrorResponseMessage"
+            }
           }
         },
         "deprecated": false
@@ -300,14 +361,16 @@
   "definitions": {
     "Object": {
       "type": "object",
-      "properties": { }
+      "properties": {}
     },
     "JobAccountResourceList": {
       "type": "object",
       "properties": {
         "value": {
           "type": "array",
-          "items": { "$ref": "#/definitions/JobAccountResource" }
+          "items": {
+            "$ref": "#/definitions/JobAccountResource"
+          }
         }
       },
       "description": "The response to a List Azure SQL Database job account request."
@@ -315,25 +378,37 @@
     "JobAccountResource": {
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string" },
-        "type": { "type": "string" },
-        "location": { "type": "string" },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
         "tags": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-        "properties": { 
+        "properties": {
           "$ref": "#/definitions/JobAccountResourceProperties",
-          "x-ms-client-flatten":true
-         }
+          "x-ms-client-flatten": true
+        }
       },
       "description": "An Azure SQL Database job account."
     },
     "JobAccountResourceProperties": {
       "type": "object",
       "properties": {
-        "databaseId": { "type": "string" }
+        "databaseId": {
+          "type": "string"
+        }
       },
       "required": [
         "databaseId"
@@ -345,7 +420,9 @@
       "properties": {
         "value": {
           "type": "array",
-          "items": { "$ref": "#/definitions/JobResource" }
+          "items": {
+            "$ref": "#/definitions/JobResource"
+          }
         }
       },
       "description": "The response to a List Azure SQL Database job request."
@@ -353,36 +430,67 @@
     "JobResource": {
       "type": "object",
       "properties": {
-        "id": { "type": "string" },
-        "name": { "type": "string" },
-        "type": { "type": "string" },
-        "location": { "type": "string" },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
         "tags": {
           "type": "object",
-          "additionalProperties": { "type": "string" }
+          "additionalProperties": {
+            "type": "string"
+          }
         },
-        "properties": { 
+        "properties": {
           "$ref": "#/definitions/JobResourceProperties",
-          "x-ms-client-flatten":true
-         }
+          "x-ms-client-flatten": true
+        }
       },
       "description": "An Azure SQL Database job account."
     },
     "JobResourceProperties": {
       "type": "object",
       "properties": {
-        "versionNumber": { "type": "integer", "default":0 },
-        "scheduleStartTime": { "type": "string", "default":"1900-01-01 00:00:00"},
-        "scheduleEndTime": { "type": "string", "default":"9999-12-31 23:59:59"},
-        "scheduleIntervalType": { "type": "string", "default":"Once"},
-        "scheduleIntervalValue": { "type": "integer", "default":1},
-        "enabled": { "type": "integer"}
+        "versionNumber": {
+          "type": "integer",
+          "default": 0
+        },
+        "scheduleStartTime": {
+          "type": "string",
+          "default": "1900-01-01 00:00:00"
+        },
+        "scheduleEndTime": {
+          "type": "string",
+          "default": "9999-12-31 23:59:59"
+        },
+        "scheduleIntervalType": {
+          "type": "string",
+          "default": "Once"
+        },
+        "scheduleIntervalValue": {
+          "type": "integer",
+          "default": 1
+        },
+        "enabled": {
+          "type": "integer"
+        }
       },
       "description": "Properties of an Azure SQL Database job account."
     },
     "ArmErrorResponseMessage": {
       "type": "object",
-      "properties": { "error": { "$ref": "#/definitions/ArmErrorResponseExtendedErrorInfo" } },
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ArmErrorResponseExtendedErrorInfo"
+        }
+      },
       "description": "Properties of an Azure SQL Database job account."
     },
     "ArmErrorResponseExtendedErrorInfo": {
@@ -390,23 +498,39 @@
       "properties": {
         "details": {
           "type": "array",
-          "items": { "$ref": "#/definitions/ArmErrorResponseErrorDetail" }
+          "items": {
+            "$ref": "#/definitions/ArmErrorResponseErrorDetail"
+          }
         },
-        "innerError": { "$ref": "#/definitions/Object" },
-        "code": { "type": "string" },
-        "message": { "type": "string" },
-        "target": { "type": "string" }
+        "innerError": {
+          "$ref": "#/definitions/Object"
+        },
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
       },
-      "description":"Standard ARM error response info"
+      "description": "Standard ARM error response info"
     },
     "ArmErrorResponseErrorDetail": {
       "type": "object",
       "properties": {
-        "code": { "type": "string" },
-        "message": { "type": "string" },
-        "target": { "type": "string" }
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
       },
-      "description":"Standard ARM error response details"
+      "description": "Standard ARM error response details"
     }
   }
 }

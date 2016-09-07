@@ -1313,7 +1313,7 @@
                 "tags": [
                     "TransparentDataEncryption"
                 ],
-                "operationId": "Databases_CreateOrUpdateTransparentDataEncryption",
+                "operationId": "Databases_SetTransparentDataEncryption",
                 "description": "Creates or updates an Azure SQL Database Transparent Data Encryption Operation.",
                 "parameters": [
                     {
@@ -2350,31 +2350,37 @@
                     "description": "Gets the observation period start."
                 },
                 "activeTimeRatio": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets the activeTimeRatio for service tier advisor."
                 },
                 "minDtu": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets minDtu for service tier advisor."
                 },
                 "avgDtu": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets avgDtu for service tier advisor."
                 },
                 "maxDtu": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets maxDtu for service tier advisor."
                 },
                 "maxSizeInGB": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets maxSizeInGB for service tier advisor."
                 },
                 "serviceLevelObjectiveUsageMetrics": {
+                    "readOnly": true,
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/SloUsageMetric"
@@ -2382,52 +2388,63 @@
                     "description": "Gets or sets serviceLevelObjectiveUsageMetrics for the service tier advisor."
                 },
                 "currentServiceLevelObjective": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets currentServiceLevelObjective for service tier advisor."
                 },
                 "currentServiceLevelObjectiveId": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets currentServiceLevelObjectiveId for service tier advisor."
                 },
                 "usageBasedRecommendationServiceLevelObjective": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets usageBasedRecommendationServiceLevelObjective for service tier advisor."
                 },
                 "usageBasedRecommendationServiceLevelObjectiveId": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets usageBasedRecommendationServiceLevelObjectiveId for service tier advisor."
                 },
                 "databaseSizeBasedRecommendationServiceLevelObjective": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets databaseSizeBasedRecommendationServiceLevelObjective for service tier advisor."
                 },
                 "databaseSizeBasedRecommendationServiceLevelObjectiveId": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets databaseSizeBasedRecommendationServiceLevelObjectiveId for service tier advisor."
                 },
                 "disasterPlanBasedRecommendationServiceLevelObjective": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets disasterPlanBasedRecommendationServiceLevelObjective for service tier advisor."
                 },
                 "disasterPlanBasedRecommendationServiceLevelObjectiveId": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets disasterPlanBasedRecommendationServiceLevelObjectiveId for service tier advisor."
                 },
                 "overallRecommendationServiceLevelObjective": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets overallRecommendationServiceLevelObjective for service tier advisor."
                 },
                 "overallRecommendationServiceLevelObjectiveId": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "uuid",
                     "description": "Gets or sets overallRecommendationServiceLevelObjectiveId for service tier advisor."
                 },
                 "confidence": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets confidence for service tier advisor."
@@ -2438,6 +2455,7 @@
         "ServiceTierAdvisor": {
             "properties": {
                 "properties": {
+                    "readOnly": true,
                     "$ref": "#/definitions/ServiceTierAdvisorProperties",
                     "description": "Gets or sets the properites representing the resource.",
                     "x-ms-client-flatten": true
@@ -2445,7 +2463,7 @@
             },
             "allOf": [
                 {
-                    "$ref": "#/definitions/Resource"
+                    "$ref": "#/definitions/SubResource"
                 }
             ],
             "description": "Represents a Service Tier Advisor."
@@ -2682,28 +2700,34 @@
         "DatabaseMetric": {
             "properties": {
                 "resourceName": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the name of the resource."
                 },
                 "displayName": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the metric display name."
                 },
                 "currentValue": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets the current value of the metric."
                 },
                 "limit": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets the current limit of the metric."
                 },
                 "unit": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the units of the metric."
                 },
                 "nextResetTime": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "date-time",
                     "description": "Gets or sets the next reset time for the metric."
@@ -2726,28 +2750,34 @@
         "ServerMetric": {
             "properties": {
                 "resourceName": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the name of the resource."
                 },
                 "displayName": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the metric display name."
                 },
                 "currentValue": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets the current value of the metric."
                 },
                 "limit": {
+                    "readOnly": true,
                     "type": "number",
                     "format": "double",
                     "description": "Gets or sets the current limit of the metric."
                 },
                 "unit": {
+                    "readOnly": true,
                     "type": "string",
                     "description": "Gets or sets the units of the metric."
                 },
                 "nextResetTime": {
+                    "readOnly": true,
                     "type": "string",
                     "format": "date-time",
                     "description": "Gets or sets the next reset time for the metric."
