@@ -5,6 +5,7 @@
   },
   "documents": [
     "e:/git/azure-rest-api-specs/arm-sql/2015-05-01/swagger/jobaccount.json",
+    "e:/git/azure-rest-api-specs/arm-sql/2015-05-01/swagger/sql.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/sql.core.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverFirewallRules.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/importExport.json",
