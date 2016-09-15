@@ -4,18 +4,18 @@
     "description": "Composite Swagger for Azure Sql Database Client"
   },
   "documents": [
-    "e:/git/azure-rest-api-specs/arm-sql/2015-05-01/swagger/jobaccount.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2015-05-01/swagger/sql.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/sql.core.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverFirewallRules.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/importExport.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverDisasterRecoveryConfiguration.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/recoverableDatabases.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/auditingPolicies.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/dataMasking.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/capabilities.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/replicationLinks.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/secureConnectionPolicy.json",
-    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverAzureADAdministrators.json"
+    "./2015-05-01/swagger/jobaccount.json",
+    "./2015-05-01/swagger/sql.json",
+    "./2014-04-01/swagger/sql.core.json",
+    "./2014-04-01/swagger/serverFirewallRules.json",
+    "./2014-04-01/swagger/importExport.json",
+    "./2014-04-01/swagger/serverDisasterRecoveryConfiguration.json",
+    "./2014-04-01/swagger/recoverableDatabases.json",
+    "./2014-04-01/swagger/auditingPolicies.json",
+    "./2014-04-01/swagger/dataMasking.json",
+    "./2014-04-01/swagger/capabilities.json",
+    "./2014-04-01/swagger/replicationLinks.json",
+    "./2014-04-01/swagger/secureConnectionPolicy.json",
+    "./2014-04-01/swagger/serverAzureADAdministrators.json"
   ]
 }
