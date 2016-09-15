@@ -17,5 +17,6 @@
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/replicationLinks.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/secureConnectionPolicy.json",
     "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/serverAzureADAdministrators.json"
+    "e:/git/azure-rest-api-specs/arm-sql/2014-04-01/swagger/secureServerConnectionPolicy.json"
   ]
 }
