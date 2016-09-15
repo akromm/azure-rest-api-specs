@@ -97,7 +97,7 @@
             "properties": {
                 "connectionType": {
                     "type": "string",
-                    "description": "Gets the Data Security Proxy DNS name."
+                    "description": "Gets or Sets server connection type."
                 }
             },
             "description": "Represents the properties of an Azure SQL Server secure connection policy."
