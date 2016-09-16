@@ -17,5 +17,6 @@
     "./2014-04-01/swagger/replicationLinks.json",
     "./2014-04-01/swagger/secureConnectionPolicy.json",
     "./2014-04-01/swagger/serverAzureADAdministrators.json"
+    "./2014-04-01/swagger/secureServerConnectionPolicy.json"
   ]
 }
