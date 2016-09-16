@@ -21,7 +21,7 @@
                 "tags": [
                     "SecureServerConnection"
                 ],
-                "operationId": "Server_UpdateSecureConnectionPolicy",
+                "operationId": "Servers_UpdateSecureConnectionPolicy",
                 "description": "Updates Sever connection policy.",
                 "parameters": [
                     {
@@ -65,7 +65,7 @@
                 "tags": [
                     "SecureConnection"
                 ],
-                "operationId": "Server_GetSecureConnectionPolicy",
+                "operationId": "Servers_GetSecureConnectionPolicy",
                 "description": "Returns an Azure SQL Server secure connection policy.",
                 "parameters": [
                     {
