@@ -22,7 +22,7 @@
                     "SecureServerConnection"
                 ],
                 "operationId": "Server_UpdateSecureConnectionPolicy",
-                "description": "Udpates Sever connection policy.",
+                "description": "Updates Sever connection policy.",
                 "parameters": [
                     {
                         "$ref": "#/parameters/ApiVersionParameter"
@@ -97,8 +97,16 @@
             "properties": {
                 "connectionType": {
                     "type": "string",
-                    "description": "Gets or Sets server connection type."
-                }
+                    "description": "Gets or Sets server connection type. The ServerConnectonTypes enumeration contains all the valid connection types.",
+                    "enum": [
+                            "Default",
+                            "Proxy",
+                            "Redirect"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ServerConnectonTypes",
+                            "modelAsString": true
+                        }
             },
             "description": "Represents the properties of an Azure SQL Server secure connection policy."
         },
