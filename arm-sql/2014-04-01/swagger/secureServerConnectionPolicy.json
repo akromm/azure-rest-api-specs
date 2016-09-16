@@ -22,7 +22,7 @@
                     "SecureServerConnection"
                 ],
                 "operationId": "Servers_UpdateSecureConnectionPolicy",
-                "description": "Updates Sever connection policy.",
+                "description": "Updates Server connection policy.",
                 "parameters": [
                     {
                         "$ref": "#/parameters/ApiVersionParameter"
