@@ -237,8 +237,7 @@
                             "$ref": "#/definitions/ImportExportOperationStatusResponse"
                         }
                     }
-                },
-                "x-ms-long-running-operation": true
+                }
             }
         },
         "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/importExportOperationResults/{operationId}": {
@@ -296,8 +295,7 @@
                             "$ref": "#/definitions/ImportExportOperationStatusResponse"
                         }
                     }
-                },
-                "x-ms-long-running-operation": true
+                }
             }
         }
     },
@@ -459,6 +457,7 @@
             "in": "path",
             "required": true,
             "type": "string",
+            "format": "uuid",
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
         },
         "ApiVersionParameter": {

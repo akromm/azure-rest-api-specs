@@ -150,6 +150,7 @@
             "in": "path",
             "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
             "required": true,
+            "format": "uuid",
             "type": "string"
           },
           {
