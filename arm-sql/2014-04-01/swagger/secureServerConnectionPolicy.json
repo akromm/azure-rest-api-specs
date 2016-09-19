@@ -79,7 +79,7 @@
                     },
                     {
                         "$ref": "#/parameters/ServerNameParameter"
-                    },
+                    }
                 ],
                 "responses": {
                     "200": {
@@ -99,14 +99,15 @@
                     "type": "string",
                     "description": "Gets or Sets server connection type. The ServerConnectonTypes enumeration contains all the valid connection types.",
                     "enum": [
-                            "Default",
-                            "Proxy",
-                            "Redirect"
-                        ],
-                        "x-ms-enum": {
-                            "name": "ServerConnectonTypes",
-                            "modelAsString": true
-                        }
+                        "Default",
+                        "Proxy",
+                        "Redirect"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ServerConnectonTypes",
+                        "modelAsString": true
+                    }
+                }
             },
             "description": "Represents the properties of an Azure SQL Server secure connection policy."
         },
@@ -183,6 +184,7 @@
             "in": "path",
             "required": true,
             "type": "string",
+            "format": "uuid",
             "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
         },
         "ApiVersionParameter": {
@@ -205,7 +207,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "The name of the Azure SQL Server to which policy applies",
+            "description": "The name of the Azure SQL Server",
             "x-ms-parameter-location": "method"
         }
     }

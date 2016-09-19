@@ -1,520 +1,982 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "version": "2015-05-01-preview",
-    "title": "SqlManagementClient",
-    "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities."
-  },
-  "host": "management.azure.com",
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts": {
-      "get": {
-        "tags": [
-          "JobAccounts"
-        ],
-        "description": "Returns information about Azure SQL Job Accounts.",
-        "operationId": "JobAccounts_List",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "subscriptionId",
-            "in": "path",
-            "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "description": "The name of the Resource Group to which the server belongs.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "serverName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database Server that the Job Accounts are hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "description": "Client Api Version.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved the list of job accounts.",
-            "schema": {
-              "$ref": "#/definitions/JobAccountResourceList"
-            }
-          },
-          "default": {
-            "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found",
-            "schema": {
-              "$ref": "#/definitions/ArmErrorResponseMessage"
-            }
-          }
-        },
-        "deprecated": false
-      }
+    "swagger": "2.0",
+    "info": {
+        "version": "2015-05-01-preview",
+        "title": "SqlManagementClient",
+        "description": "The Azure SQL Database management API provides a RESTful set of web APIs that interact with Azure SQL Database services to manage your databases. The API enables users to create, retrieve, update, and delete databases, servers, and other entities."
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}": {
-      "get": {
-        "tags": [
-          "JobAccounts"
-        ],
-        "description": "Returns information about an Azure SQL Job Account.",
-        "operationId": "JobAccounts_Get",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "subscriptionId",
-            "in": "path",
-            "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "description": "The name of the Resource Group to which the server belongs.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "serverName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "jobAccountName",
-            "in": "path",
-            "description": "The name of the Azure SQL Job Account to be retrieved.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "description": "Client Api Version.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved the specified job account.",
-            "schema": {
-              "$ref": "#/definitions/JobAccountResource"
+    "host": "management.azure.com",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/jobs": {
+            "get": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "operationId": "JobAccounts_GetJob",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/JobResource"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
             }
-          },
-          "default": {
-            "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
-            "schema": {
-              "$ref": "#/definitions/ArmErrorResponseMessage"
-            }
-          }
         },
-        "deprecated": false
-      },
-      "put": {
-        "tags": [
-          "JobAccounts"
-        ],
-        "description": "Creating a new Azure SQL Job Account or updating an existing Azure SQL Job Account.",
-        "operationId": "JobAccounts_CreateOrUpdate",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/jobs/{jobName}": {
+            "get": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "operationId": "JobAccounts_ListJobs",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "operationId": "JobAccounts_PutJob",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "resource",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/JobResource"
+                        }
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "operationId": "JobAccounts_DeleteJob",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts": {
+            "get": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "description": "Returns information about Azure SQL Job Accounts.",
+                "operationId": "JobAccounts_List",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "description": "The name of the Resource Group to which the server belongs.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Database Server that the Job Accounts are hosted in.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the list of job accounts.",
+                        "schema": {
+                            "$ref": "#/definitions/JobAccountResourceList"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}": {
+            "get": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "description": "Returns information about an Azure SQL Job Account.",
+                "operationId": "JobAccounts_Get",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "description": "The name of the Resource Group to which the server belongs.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Job Account to be retrieved.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the specified job account.",
+                        "schema": {
+                            "$ref": "#/definitions/JobAccountResource"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "description": "Creating a new Azure SQL Job Account or updating an existing Azure SQL Job Account.",
+                "operationId": "JobAccounts_CreateOrUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "description": "The name of the Resource Group to which the Azure SQL Database Server belongs.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Job Account to be created or updated.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountResource",
+                        "in": "body",
+                        "description": "The requested job account resource state.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/JobAccountResource"
+                        }
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated the job account.",
+                        "schema": {
+                            "$ref": "#/definitions/JobAccountResource"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 400 InvalidJobAccountCreateOrUpdateRequest - The create or update job account request body is empty or invalid.\n\n * 400 InvalidDatabaseResourceId - Invalid database resource identifier.\n\n * 400 MismatchingSubscriptionWithUrl - The provided subscription did not match the subscription in the Url.\n\n * 400 MismatchingResourceGroupNameWithUrl - The provided resource group name did not match the name in the Url.\n\n * 400 MismatchingServerNameWithUrl - The provided server name did not match the name in the Url.\n\n * 400 DatabaseDoesNotExist - The requested database was not found\n\n * 400 JobAccountExceededAccountsQuota - Could not create job account because it would exceed the quota.\n\n * 400 JobAccountAlreadyExists - The job account already exists on the server.\n\n * 400 JobAccountDatabaseEditionUnsupported - The specified database's service level objective is not supported for use as a job account database.\n\n * 400 CannotUseReservedDatabaseName - Cannot use reserved database name in this operation.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 SubscriptionNotFound - The requested subscription was not found.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    },
+                    "201": {
+                        "description": "Successfully created the job account.",
+                        "schema": {
+                            "$ref": "#/definitions/JobAccountResource"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-long-running-operation": true
+            },
+            "delete": {
+                "tags": [
+                    "JobAccounts"
+                ],
+                "description": "Deletes the Azure SQL Job Account with the given name.",
+                "operationId": "JobAccounts_Delete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "description": "The name of the Resource Group to which the Azure SQL Database Server belongs.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "description": "The name of the Azure SQL Job Account to be deleted.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted the job account."
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    },
+                    "204": {
+                        "description": "The specified job account does not exist."
+                    }
+                },
+                "deprecated": false,
+                "x-ms-long-running-operation": true
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/targetGroups": {
+            "get": {
+                "tags": [
+                    "TargetGroups"
+                ],
+                "operationId": "TargetGroups_Get",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/targetGroups/{targetGroupName}": {
+            "get": {
+                "tags": [
+                    "TargetGroups"
+                ],
+                "operationId": "TargetGroups_Get",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "targetGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "TargetGroups"
+                ],
+                "operationId": "TargetGroups_CreateOrUpdate",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "targetGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "resource",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TargetGroupResource"
+                        }
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "TargetGroups"
+                ],
+                "operationId": "TargetGroups_Delete",
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/SubscriptionIdParameter"
+                    },
+                    {
+                        "name": "resourceGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "serverName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "jobAccountName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "targetGroupName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-version",
+                        "in": "query",
+                        "description": "Client Api Version.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/System.Object"
+                        }
+                    },
+                    "default": {
+                        "description": "*** Error Responses: ***\n\n * 404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.",
+                        "schema": {
+                            "$ref": "#/definitions/ArmErrorResponseMessage"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "Object": {
+            "type": "object",
+            "properties": {}
+        },
+        "ArmErrorResponseMessage": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "$ref": "#/definitions/ArmErrorResponseExtendedErrorInfo"
+                }
+            }
+        },
+        "ArmErrorResponseExtendedErrorInfo": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ArmErrorResponseErrorDetail"
+                    }
+                },
+                "innerError": {
+                    "$ref": "#/definitions/Object"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "target": {
+                    "type": "string"
+                }
+            }
+        },
+        "ArmErrorResponseErrorDetail": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "target": {
+                    "type": "string"
+                }
+            }
+        },
+        "JobResource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "sku": {
+                    "$ref": "#/definitions/ArmResourceSku"
+                },
+                "kind": {
+                    "enum": [
+                        "None",
+                        "V2",
+                        "V12",
+                        "User",
+                        "System",
+                        "Datawarehouse"
+                    ],
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/JobResourceProperties"
+                }
+            }
+        },
+        "ArmResourceSku": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "tier": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "string"
+                },
+                "family": {
+                    "type": "string"
+                },
+                "capacity": {
+                    "format": "int32",
+                    "type": "integer"
+                }
+            }
+        },
+        "JobResourceProperties": {
+            "type": "object",
+            "properties": {
+                "versionNumber": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "schedule": {
+                    "$ref": "#/definitions/ScheduleProperties"
+                }
+            }
+        },
+        "ScheduleProperties": {
+            "type": "object",
+            "properties": {
+                "startTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "endTime": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "intervalType": {
+                    "enum": [
+                        "Once",
+                        "Minutes",
+                        "Hours",
+                        "Days",
+                        "Weeks",
+                        "Months"
+                    ],
+                    "type": "string"
+                },
+                "intervalValue": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "JobAccountResourceList": {
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/JobAccountResource"
+                    }
+                },
+                "nextLink": {
+                    "type": "string"
+                }
+            }
+        },
+        "JobAccountResource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/JobAccountResourceProperties"
+                }
+            }
+        },
+        "JobAccountResourceProperties": {
+            "type": "object",
+            "properties": {
+                "databaseId": {
+                    "type": "string"
+                }
+            }
+        },
+        "TargetGroupResource": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "sku": {
+                    "$ref": "#/definitions/ArmResourceSku"
+                },
+                "kind": {
+                    "enum": [
+                        "None",
+                        "V2",
+                        "V12",
+                        "User",
+                        "System",
+                        "Datawarehouse"
+                    ],
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "properties": {
+                    "x-ms-client-flatten": true,
+                    "$ref": "#/definitions/TargetGroupResourceProperties"
+                }
+            }
+        },
+        "TargetGroupResourceProperties": {
+            "type": "object",
+            "properties": {}
+        }
+    },
+    "parameters": {
+        "SubscriptionIdParameter": {
             "name": "subscriptionId",
             "in": "path",
-            "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
             "required": true,
+            "type": "string",
             "format": "uuid",
-            "type": "string"
-          },
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "description": "The name of the Resource Group to which the Azure SQL Database Server belongs.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "serverName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "jobAccountName",
-            "in": "path",
-            "description": "The name of the Azure SQL Job Account to be created or updated.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "jobAccountResource",
-            "in": "body",
-            "description": "The requested job account resource state.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/JobAccountResource"
-            }
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "description": "Client Api Version.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully updated the job account.",
-            "schema": {
-              "$ref": "#/definitions/JobAccountResource"
-            }
-          },
-          "default": {
-            "description": "<b>Error Responses:</b><br/>400 InvalidJobAccountCreateOrUpdateRequest - The create or update job account request body is empty or invalid.<br/>400 InvalidDatabaseResourceId - Invalid database resource identifier.<br/>400 MismatchingSubscriptionWithUrl - The provided subscription did not match the subscription in the Url.<br/>400 MismatchingResourceGroupNameWithUrl - The provided resource group name did not match the name in the Url.<br/>400 MismatchingServerNameWithUrl - The provided server name did not match the name in the Url.<br/>400 DatabaseDoesNotExist - The requested database was not found<br/>400 JobAccountExceededAccountsQuota - Could not create job account because it would exceed the quota.<br/>400 JobAccountAlreadyExists - The job account already exists on the server.<br/>400 CannotUseReservedDatabaseName - Cannot use reserved database name in this operation.<br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 SubscriptionNotFound - The requested subscription was not found.",
-            "schema": {
-              "$ref": "#/definitions/ArmErrorResponseMessage"
-            }
-          },
-          "201": {
-            "description": "Successfully created the job account.",
-            "schema": {
-              "$ref": "#/definitions/JobAccountResource"
-            }
-          },
-          "202": {
-            "description": "Create or update has been requested."
-          }
-        },
-        "deprecated": false,
-        "x-ms-long-running-operation": true
-      },
-      "delete": {
-        "tags": [
-          "JobAccounts"
-        ],
-        "description": "Deletes the Azure SQL Job Account with the given name.",
-        "operationId": "JobAccounts_Delete",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "subscriptionId",
-            "in": "path",
-            "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "description": "The name of the Resource Group to which the Azure SQL Database Server belongs.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "serverName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database Server that the Job Account is hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "jobAccountName",
-            "in": "path",
-            "description": "The name of the Azure SQL Job Account to be deleted.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "description": "Client Api Version.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully deleted the job account."
-          },
-          "default": {
-            "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found<br/>404 JobAccountNotFound - Specified elastic job account does not exist in the specified logical server.",
-            "schema": {
-              "$ref": "#/definitions/ArmErrorResponseMessage"
-            }
-          },
-          "204": {
-            "description": "The specified job account does not exist."
-          },
-          "202": {
-            "description": "Create or update has been requested."
-          }
-        },
-        "deprecated": false,
-        "x-ms-long-running-operation": true
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/jobAccounts/{jobAccountName}/jobs": {
-      "get": {
-        "tags": [
-          "Jobs"
-        ],
-        "description": "Returns information about Azure SQL jobs.",
-        "operationId": "Jobs_List",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "subscriptionId",
-            "in": "path",
-            "description": "Subscription ID which uniquely identifies Microsoft Azure subscription.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "description": "The name of the Resource Group to which the server belongs.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "serverName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database Server that the Job Accounts are hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "jobAccountName",
-            "in": "path",
-            "description": "The name of the Azure SQL Database job account that the Jobs are hosted in.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "api-version",
-            "in": "query",
-            "description": "Client Api Version.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved the list of job accounts.",
-            "schema": {
-              "$ref": "#/definitions/JobResourceList"
-            }
-          },
-          "default": {
-            "description": "<b>Error Responses:</b><br/>404 SubscriptionDoesNotHaveServer - The requested server was not found",
-            "schema": {
-              "$ref": "#/definitions/ArmErrorResponseMessage"
-            }
-          }
-        },
-        "deprecated": false
-      }
+            "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
+        }
     }
-  },
-  "definitions": {
-    "JobAccountResourceList": {
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/JobAccountResource"
-          }
-        }
-      },
-      "description": "The response to a List Azure SQL Database job account request."
-    },
-    "JobAccountResource": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "properties": {
-          "$ref": "#/definitions/JobAccountResourceProperties",
-          "x-ms-client-flatten": true
-        }
-      },
-      "description": "An Azure SQL Database job account."
-    },
-    "JobAccountResourceProperties": {
-      "properties": {
-        "databaseId": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "databaseId"
-      ],
-      "description": "Properties of an Azure SQL Database job account."
-    },
-    "JobResourceList": {
-      "properties": {
-        "value": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/JobResource"
-          }
-        }
-      },
-      "description": "The response to a List Azure SQL Database job request."
-    },
-    "JobResource": {
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "location": {
-          "type": "string"
-        },
-        "tags": {
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
-        "properties": {
-          "$ref": "#/definitions/JobResourceProperties",
-          "x-ms-client-flatten": true
-        }
-      },
-      "description": "An Azure SQL Database job account."
-    },
-    "JobResourceProperties": {
-      "properties": {
-        "versionNumber": {
-          "type": "integer",
-          "default": 0
-        },
-        "scheduleStartTime": {
-          "type": "string",
-          "default": "1900-01-01 00:00:00"
-        },
-        "scheduleEndTime": {
-          "type": "string",
-          "default": "9999-12-31 23:59:59"
-        },
-        "scheduleIntervalType": {
-          "type": "string",
-          "default": "Once"
-        },
-        "scheduleIntervalValue": {
-          "type": "integer",
-          "default": 1
-        },
-        "enabled": {
-          "type": "integer"
-        }
-      },
-      "description": "Properties of an Azure SQL Database job account."
-    },
-    "ArmErrorResponseMessage": {
-      "description": "Represents the error response details",
-      "properties": {
-        "error": {
-          "$ref": "#/definitions/ArmErrorResponseExtendedErrorInfo"
-        }
-      }
-    },
-    "ArmErrorResponseExtendedErrorInfo": {
-      "description": "Contains detailed error information",
-      "properties": {
-        "details": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ArmErrorResponseErrorDetail"
-          }
-        },
-        "innerError": {
-          "readOnly": true
-        },
-        "code": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "message": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "target": {
-          "readOnly": true,
-          "type": "string"
-        }
-      }
-    },
-    "ArmErrorResponseErrorDetail": {
-      "description": "Details about a specific error",
-      "properties": {
-        "code": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "message": {
-          "readOnly": true,
-          "type": "string"
-        },
-        "target": {
-          "readOnly": true,
-          "type": "string"
-        }
-      }
-    }
-  }
 }
